@@ -1,0 +1,44 @@
+html 
+    head 
+        title Home Page
+
+    body 
+        h2 Welcome to Home Page
+        
+        p Search for #[input#query(type="text")]
+        button(type="button", onclick="searchInActors()") in People
+        |
+        |
+        button(type="button", onclick="searchInMovies()") in Movies
+        h4 Search Results
+        #results
+    
+    script.
+        function searchInActors() {
+            let name = document.getElementById('query').value;
+            console.log(name);
+            let req = new XMLHttpRequest();
+            req.onreadystatechange = function() {
+                if (req.readyState === 4 && req.status === 200) {
+                    document.getElementById('results').innerHTML = this.responseText;
+                }
+            };
+            req.open("GET", `http://localhost:3000/people?name=${name}`);
+            //- req.setRequestHeader("Content-Type", "application/json");
+            req.send();
+        }
+
+        function searchInMovies() {
+            let title = document.getElementById('query').value;
+            console.log(title);
+            let req = new XMLHttpRequest();
+            req.onreadystatechange = function() {
+                if (req.readyState === 4 && req.status === 200) {
+                    document.getElementById('results').innerHTML = this.responseText;
+                }
+            };
+            req.open("GET", `http://localhost:3000/movies?title=${title}`);
+            //- req.setRequestHeader("Content-Type", "application/json");
+            req.send();
+        }
+

@@ -1,0 +1,14 @@
+
+if p 
+    - let age = (p.age? p.age : false)
+    - let n = (p.nationality? p.nationality : false)
+    if age
+        li #{p.age} years old 
+    if n
+        li Nationality: #{p.nationality}
+
+if m
+    li Realeased in #{m.year}
+    li Has a runtime of #{m.runtime} minutes 
+    li Genre: #{m.genre}
+    li Language: #{m.language}

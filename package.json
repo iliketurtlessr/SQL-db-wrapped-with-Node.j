@@ -1,0 +1,23 @@
+{
+  "name": "term-project",
+  "version": "1.0.0",
+  "description": "term project of COMP 3005",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db-init": "node database-initializer.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js -e js,json,pug,db",
+    "b": "nodemon database-initializer.js -e js"
+  },
+  "author": "siddharth",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pug": "^3.0.2",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

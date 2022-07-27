@@ -1,0 +1,21 @@
+
+html 
+    head 
+        - let title = (p ? p.name : m.title)
+        title #{title}
+
+    body 
+        if p
+            h3 #{p.name}
+            include ./info
+            p Movies #{p.name} worked on
+            ul
+                each m in movies
+                    li #[a(href=`http://localhost:3000/movies/${m.movie}`) #{m.movie} (#{m.year})] as #{m.credited_as}
+        if m
+            h3 #{m.title}
+            include ./info
+            p People working in #{m.title}
+            ul
+                each p in people
+                    li #[a(href=`http://localhost:3000/people/${p.name}`) #{p.name}] as #{p.credited_as}

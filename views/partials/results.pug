@@ -1,0 +1,15 @@
+
+if people
+    h5 People matching mattern:
+    ul
+        each p in people
+            li: a(href=`http://localhost:3000/people/${p.name}`) #{p.name}
+            //- ul
+            //-    include ./info
+else 
+    h5 Movies matching mattern:
+    ul
+        each m in movies
+            li: a(href=`http://localhost:3000/movies/${m.title}`, target=`_blank`) #{m.title} (#{m.year})
+            //- ul 
+            //-     include ./info
